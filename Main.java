@@ -32,6 +32,7 @@ public class Main extends JavaPlugin implements Listener {
 	    	 if((b.getType().equals(Material.CAULDRON)) && (p.getItemInHand().getType().equals(Material.POTION))) {
 	    		 int a = b.getData();
 	    		 p.sendMessage(p.getItemInHand().getData().toString().replace("POTION(", "").replace(")", ""));
+	    		 p.sendMessage(p.getItemInHand().getItemMeta().toString());
 		    		 if(a <= 3){a++;
 		    		 b.setData((byte) a);
 		    		 potions.add(p.getItemInHand().getData().toString().replace("POTION(", "").replace(")", ""));
@@ -44,52 +45,140 @@ public class Main extends JavaPlugin implements Listener {
 		    			 List<String> lore = new ArrayList<String>();
 		    			 if(potions.get(0).contentEquals("0") || potions.get(1).contentEquals("0") || potions.get(2).contentEquals("0")){
 		    				 if(potions2.get(0).contains("FIRE_RESISTANCE") || potions2.get(1).contains("FIRE_RESISTANCE") || potions2.get(2).contains("FIRE_RESISTANCE")){
-		    					 meta.addCustomEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 600, 1), true);
-					    		 lore.add(ChatColor.GOLD + "Fire Resistance");
+		    					 if(potions2.get(0).contains("3600") || potions2.get(1).contains("3600") || potions2.get(2).contains("3600")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 3600, 0), true);
+						    		 lore.add(ChatColor.GOLD + "Fire Resistance 3:00");
+		    					 }
+		    					 if(potions2.get(0).contains("9600") || potions2.get(1).contains("9600") || potions2.get(2).contains("9600")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 9600, 0), true);
+						    		 lore.add(ChatColor.GOLD + "Fire Resistance 8:00");
+		    					 }	  
 		    				 }
 		    				 if(potions2.get(0).contains("HARM") || potions2.get(1).contains("HARM") || potions2.get(2).contains("HARM")){
-		    					 meta.addCustomEffect(new PotionEffect(PotionEffectType.HARM, 600, 1), true);
-					    		 lore.add(ChatColor.GOLD + "Harm");
+		    					 if(potions2.get(0).contains("x1") || potions2.get(1).contains("x1") || potions2.get(2).contains("x1")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.HARM, 20, 1), true);
+						    		 lore.add(ChatColor.GOLD + "Harm2");
+		    					 }
+		    					 if(potions2.get(0).contains("x0") || potions2.get(1).contains("x0") || potions2.get(2).contains("x0")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.HARM, 20, 0), true);
+						    		 lore.add(ChatColor.GOLD + "Harm");
+		    					 }
 		    				 }
 		    				 if(potions2.get(0).contains("HEAL") || potions2.get(1).contains("HEAL") || potions2.get(2).contains("HEAL")){
-		    					 meta.addCustomEffect(new PotionEffect(PotionEffectType.HEAL, 600, 1), true);
-					    		 lore.add(ChatColor.GOLD + "Heal");
+		    					 if(potions2.get(0).contains("x1") || potions2.get(1).contains("x1") || potions2.get(2).contains("x1")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.HEAL, 20, 1), true);
+						    		 lore.add(ChatColor.GOLD + "Heal2");
+		    					 }
+		    					 if(potions2.get(0).contains("x0") || potions2.get(1).contains("x0") || potions2.get(2).contains("x0")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.HEAL, 20, 0), true);
+						    		 lore.add(ChatColor.GOLD + "Heal");
+		    					 }
 		    				 }
 		    				 if(potions2.get(0).contains("INCREASE_DAMAGE") || potions2.get(1).contains("INCREASE_DAMAGE") || potions2.get(2).contains("INCREASE_DAMAGE")){
-		    					 meta.addCustomEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 600, 1), true);
-					    		 lore.add(ChatColor.GOLD + "Strength");
+		    					 if(potions2.get(0).contains("3600") || potions2.get(1).contains("3600") || potions2.get(2).contains("3600")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 3600, 0), true);
+						    		 lore.add(ChatColor.GOLD + "Strength 3:00");
+		    					 }
+		    					 if(potions2.get(0).contains("9600") || potions2.get(1).contains("9600") || potions2.get(2).contains("9600")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 9600, 0), true);
+						    		 lore.add(ChatColor.GOLD + "Strength 8:00");
+		    					 }
+		    					 if(potions2.get(0).contains("1800") || potions2.get(1).contains("1800") || potions2.get(2).contains("1800")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 1800, 1), true);
+						    		 lore.add(ChatColor.GOLD + "Strength2 1:30");
+		    					 }
 		    				 }
 		    				 if(potions2.get(0).contains("INVISIBILITY") || potions2.get(1).contains("INVISIBILITY") || potions2.get(2).contains("INVISIBILITY")){
-		    					 meta.addCustomEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 600, 1), true);
-					    		 lore.add(ChatColor.GOLD + "Invisibility");
+		    					 if(potions2.get(0).contains("3600") || potions2.get(1).contains("3600") || potions2.get(2).contains("3600")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 3600, 0), true);
+						    		 lore.add(ChatColor.GOLD + "Invisibility 3:00");
+		    					 }
+		    					 if(potions2.get(0).contains("9600") || potions2.get(1).contains("9600") || potions2.get(2).contains("9600")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 9600, 0), true);
+						    		 lore.add(ChatColor.GOLD + "Invisibility 8:00");
+		    					 }
 		    				 }
 		    				 if(potions2.get(0).contains("NIGHT_VISION") || potions2.get(1).contains("NIGHT_VISION") || potions2.get(2).contains("NIGHT_VISION")){
-		    					 meta.addCustomEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 600, 1), true);
-					    		 lore.add(ChatColor.GOLD + "Night Vision");
+		    					 if(potions2.get(0).contains("3600") || potions2.get(1).contains("3600") || potions2.get(2).contains("3600")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 3600, 0), true);
+						    		 lore.add(ChatColor.GOLD + "Night Vision 3:00");
+		    					 }
+		    					 if(potions2.get(0).contains("9600") || potions2.get(1).contains("9600") || potions2.get(2).contains("9600")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 9600, 0), true);
+						    		 lore.add(ChatColor.GOLD + "Night Vision 8:00");
+		    					 }
 		    				 }
 		    				 if(potions2.get(0).contains("POISON") || potions2.get(1).contains("POISON") || potions2.get(2).contains("POISON")){
-		    					 meta.addCustomEffect(new PotionEffect(PotionEffectType.POISON, 600, 1), true);
-					    		 lore.add(ChatColor.GOLD + "Poison");
+		    					 if(potions2.get(0).contains("440") || potions2.get(1).contains("440") || potions2.get(2).contains("440")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.POISON, 440, 1), true);
+						    		 lore.add(ChatColor.GOLD + "Poison2 0:22");
+		    					 }
+		    					 if(potions2.get(0).contains("900") || potions2.get(1).contains("900") || potions2.get(2).contains("900")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.POISON, 900, 0), true);
+						    		 lore.add(ChatColor.GOLD + "Poison 0:45");
+		    					 }
+		    					 if(potions2.get(0).contains("2400") || potions2.get(1).contains("2400") || potions2.get(2).contains("2400")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.POISON, 2400, 0), true);
+						    		 lore.add(ChatColor.GOLD + "Poison 2:00");
+		    					 }
 		    				 }
 		    				 if(potions2.get(0).contains("REGENERATION") || potions2.get(1).contains("REGENERATION") || potions2.get(2).contains("REGENERATION")){
-		    					 meta.addCustomEffect(new PotionEffect(PotionEffectType.REGENERATION, 600, 1), true);
-					    		 lore.add(ChatColor.GOLD + "Regeneration");
+		    					 if(potions2.get(0).contains("440") || potions2.get(1).contains("440") || potions2.get(2).contains("440")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.REGENERATION, 440, 1), true);
+						    		 lore.add(ChatColor.GOLD + "Regeneration2 0:22");
+		    					 }
+		    					 if(potions2.get(0).contains("900") || potions2.get(1).contains("900") || potions2.get(2).contains("900")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.REGENERATION, 900, 0), true);
+						    		 lore.add(ChatColor.GOLD + "Regeneration 0:45");
+		    					 }
+		    					 if(potions2.get(0).contains("2400") || potions2.get(1).contains("2400") || potions2.get(2).contains("2400")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.REGENERATION, 2400, 0), true);
+						    		 lore.add(ChatColor.GOLD + "Regeneration 2:00");
+		    					 }
 		    				 }
 		    				 if(potions2.get(0).contains("SLOW") || potions2.get(1).contains("SLOW") || potions2.get(2).contains("SLOW")){
-		    					 meta.addCustomEffect(new PotionEffect(PotionEffectType.SLOW, 600, 1), true);
-					    		 lore.add(ChatColor.GOLD + "Slowness");
+		    					 if(potions2.get(0).contains("4800") || potions2.get(1).contains("4800") || potions2.get(2).contains("4800")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.SLOW, 4800, 0), true);
+						    		 lore.add(ChatColor.GOLD + "Slowness 4:00");
+		    					 }
+		    					 if(potions2.get(0).contains("1800") || potions2.get(1).contains("1800") || potions2.get(2).contains("1800")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.SLOW, 1800, 0), true);
+						    		 lore.add(ChatColor.GOLD + "Slowness 1:30");
+		    					 }
 		    				 }
 		    				 if(potions2.get(0).contains("SPEED") || potions2.get(1).contains("SPEED") || potions2.get(2).contains("SPEED")){
-		    					 meta.addCustomEffect(new PotionEffect(PotionEffectType.SPEED, 600, 1), true);
-					    		 lore.add(ChatColor.GOLD + "Speed");
+		    					 if(potions2.get(0).contains("3600") || potions2.get(1).contains("3600") || potions2.get(2).contains("3600")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.SPEED, 3600, 0), true);
+						    		 lore.add(ChatColor.GOLD + "Speed 3:00");
+		    					 }
+		    					 if(potions2.get(0).contains("9600") || potions2.get(1).contains("9600") || potions2.get(2).contains("9600")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.SPEED, 9600, 0), true);
+						    		 lore.add(ChatColor.GOLD + "Speed 8:00");
+		    					 }
+		    					 if(potions2.get(0).contains("1800") || potions2.get(1).contains("1800") || potions2.get(2).contains("1800")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.SPEED, 1800, 1), true);
+						    		 lore.add(ChatColor.GOLD + "Speed2 1:30");
+		    					 }
 		    				 }
 		    				 if(potions2.get(0).contains("WATER_BREATHING") || potions2.get(1).contains("WATER_BREATHING") || potions2.get(2).contains("WATER_BREATHING")){
-		    					 meta.addCustomEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 600, 1), true);
-					    		 lore.add(ChatColor.GOLD + "Water Breathing");
+		    					 if(potions2.get(0).contains("3600") || potions2.get(1).contains("3600") || potions2.get(2).contains("3600")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 3600, 0), true);
+						    		 lore.add(ChatColor.GOLD + "Water Breathing 3:00");
+		    					 }
+		    					 if(potions2.get(0).contains("9600") || potions2.get(1).contains("9600") || potions2.get(2).contains("9600")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 9600, 0), true);
+						    		 lore.add(ChatColor.GOLD + "Water Breathing 8:00");
+		    					 }
 		    				 }
 		    				 if(potions2.get(0).contains("WEAKNESS") || potions2.get(1).contains("WEAKNESS") || potions2.get(2).contains("WEAKNESS")){
-		    					 meta.addCustomEffect(new PotionEffect(PotionEffectType.WEAKNESS, 600, 1), true);
-					    		 lore.add(ChatColor.GOLD + "Weakness");
+		    					 if(potions2.get(0).contains("1800") || potions2.get(1).contains("1800") || potions2.get(2).contains("1800")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.WEAKNESS, 1800, 0), true);
+						    		 lore.add(ChatColor.GOLD + "Weakness 1:30");
+		    					 }
+		    					 if(potions2.get(0).contains("4800") || potions2.get(1).contains("4800") || potions2.get(2).contains("4800")){
+		    						 meta.addCustomEffect(new PotionEffect(PotionEffectType.WEAKNESS, 4800, 0), true);
+						    		 lore.add(ChatColor.GOLD + "Weakness 4:00");
+		    					 }
 		    				 }
 		    			 }
 		    			 
