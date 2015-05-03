@@ -31,8 +31,6 @@ public class Main extends JavaPlugin implements Listener {
 	    	 Block b = e.getClickedBlock();
 	    	 if((b.getType().equals(Material.CAULDRON)) && (p.getItemInHand().getType().equals(Material.POTION))) {
 	    		 int a = b.getData();
-	    		 p.sendMessage(p.getItemInHand().getData().toString().replace("POTION(", "").replace(")", ""));
-	    		 p.sendMessage(p.getItemInHand().getItemMeta().toString());
 		    		 if(a <= 3){a++;
 		    		 b.setData((byte) a);
 		    		 potions.add(p.getItemInHand().getData().toString().replace("POTION(", "").replace(")", ""));
@@ -294,7 +292,7 @@ public class Main extends JavaPlugin implements Listener {
 				    		 meta.addCustomEffect(new PotionEffect(PotionEffectType.WEAKNESS, 4800, 0), true);
 				    		 lore.add(ChatColor.GOLD + "Weakness 4:00");
 		    			 }
-		    			 meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Custom Potion");
+		    			 meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Witch Potion");
 		    			 meta.setLore(lore);
 			    		 potion.setItemMeta(meta);
 			    		 p.getInventory().addItem(potion);
