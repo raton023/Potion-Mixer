@@ -33,8 +33,6 @@ public class Main extends JavaPlugin implements Listener {
 	    		 
 	    	 if (p.getItemInHand().getType().equals(Material.POTION) || p.getItemInHand().getType().equals(Material.SULPHUR)) {
 	    		 int a = b.getData();
-	    		 p.sendMessage(p.getItemInHand().getData().toString());
-	    		 p.sendMessage(p.getItemInHand().getItemMeta().toString());
 		    		 if(a <= 3){a++;
 		    		 b.setData((byte) a);
 		    		 potions.add(p.getItemInHand().getData().toString().replace("POTION(", "").replace(")", ""));
