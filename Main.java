@@ -39,6 +39,8 @@ public class Main extends JavaPlugin implements Listener {
 		    		 if(potions.size() == 3){
 		    			 p.sendMessage(ChatColor.AQUA + "you create a new potion");
 		    			 ItemStack potion = new ItemStack(Material.POTION);
+		    			 //ItemStack potion = new ItemStack(Material.POTION, 1, (short)16384);
+		    			 //the line adove will make all the potions Splashes Potions
 		    			 PotionMeta meta = (PotionMeta) potion.getItemMeta();
 		    			 List<String> lore = new ArrayList<String>();
 		    			 if(potions.get(0).contentEquals("0") || potions.get(1).contentEquals("0") || potions.get(2).contentEquals("0")){
