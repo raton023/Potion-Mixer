@@ -1,5 +1,7 @@
 package com.craftilandia.potionmixer;
 
+import java.util.ArrayList;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -8,6 +10,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.material.MaterialData;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin implements Listener {
@@ -16,7 +20,7 @@ public class Main extends JavaPlugin implements Listener {
 	public void onEnable() {
 		Bukkit.getServer().getPluginManager().registerEvents(this, this);
 	}
-	
+	ArrayList<MaterialData> potions = new ArrayList<MaterialData>();
 	@SuppressWarnings("deprecation")
 	@EventHandler
 	public void clickpotion(PlayerInteractEvent e){
@@ -25,18 +29,32 @@ public class Main extends JavaPlugin implements Listener {
 	    	 Block b = e.getClickedBlock();
 	    	 if((b.getType().equals(Material.CAULDRON)) && (p.getItemInHand().getType().equals(Material.GLASS_BOTTLE))) {
 	 	    	p.sendMessage("work");
-	 	    	//p.getItemInHand().setType(Material.POTION);
-	 	    	//b.setData((byte) 1);// la data 0 es vacio 1 es con 1 botella 2 es 2 y 3 es lleno
-		    		 b.setData((byte) 0);
+	 	    	
 	 	    	 }
 	    	 if((b.getType().equals(Material.CAULDRON)) && (p.getItemInHand().getType().equals(Material.POTION))) {
 	    		 p.sendMessage(p.getItemInHand().getData().toString());
 	    		 int a = b.getData();
-		    		 a++;
-		    		 p.getItemInHand().setType(Material.POTION);
-		    		 b.setData((byte) a);	
+		    		 if(a <= 3){a++;
+		    		 b.setData((byte) a);
+		    		 potions.add(p.getItemInHand().getData());
+}
+		    		 if(potions.size() == 3){
+		    			 //Object[] pociones = potions.toArray();
+		    			 p.sendMessage("you got 3 " + potions.get(0).toString().replace("POTION(", "").replace(")", ""));
+		    			 short poo = 0;
+		    			 if(potions.get(0).toString().endsWith("1)")){
+		    			 poo = 1;
+		    			 }
+		    			 potions.remove(0);
+		    			 potions.remove(0);
+		    			 potions.remove(0);
+		    			 
+		    			 a=0;
+			    		 b.setData((byte) 0);
+			    		 ItemStack pota = new ItemStack(Material.POTION, 1, (short) poo);
+			    		 p.getWorld().dropItemNaturally(p.getLocation(), pota);
+		    		 }
 		    		 
-	    		
 	 	    	 }
 	    }
 	    
