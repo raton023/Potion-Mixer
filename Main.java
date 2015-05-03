@@ -32,7 +32,6 @@ public class Main extends JavaPlugin implements Listener {
 	    	 if((b.getType().equals(Material.CAULDRON)) && (p.getItemInHand().getType().equals(Material.POTION))) {
 	    		 int a = b.getData();
 	    		 p.sendMessage(p.getItemInHand().getData().toString().replace("POTION(", "").replace(")", ""));
-	    		 p.sendMessage(p.getItemInHand().getItemMeta().toString());
 		    		 if(a <= 3){a++;
 		    		 b.setData((byte) a);
 		    		 potions.add(p.getItemInHand().getData().toString().replace("POTION(", "").replace(")", ""));
@@ -44,7 +43,6 @@ public class Main extends JavaPlugin implements Listener {
 		    			 PotionMeta meta = (PotionMeta) potion.getItemMeta();
 		    			 List<String> lore = new ArrayList<String>();
 		    			 if(potions.get(0).contentEquals("0")){
-		    				 //Custom Potion Mixer TO-DO
 		    				 if(potions2.get(0).contains("FIRE_RESISTANCE")){
 		    					 meta.addCustomEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 600, 1), true);
 					    		 lore.add(ChatColor.GOLD + "Fire Resistance");
@@ -95,7 +93,6 @@ public class Main extends JavaPlugin implements Listener {
 		    				 }
 		    			 }
 		    			 if(potions.get(1).contentEquals("0")){
-		    				//Custom Potion Mixer TO-DO
 		    				 if(potions2.get(1).contains("FIRE_RESISTANCE")){
 		    					 meta.addCustomEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 600, 1), true);
 					    		 lore.add(ChatColor.GOLD + "Fire Resistance");
@@ -146,7 +143,6 @@ public class Main extends JavaPlugin implements Listener {
 		    				 }
 		    			 }
 		    			 if(potions.get(2).contentEquals("0")){
-		    				//Custom Potion Mixer TO-DO
 		    				 if(potions2.get(2).contains("FIRE_RESISTANCE")){
 		    					 meta.addCustomEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 600, 1), true);
 					    		 lore.add(ChatColor.GOLD + "Fire Resistance");
